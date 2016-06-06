@@ -1,29 +1,10 @@
 var app = angular.module("ReseminApp", []);
-var BASE_URL="http://localhost:8080/resemin_restapi/";
+var BASE_URL="http://localhost:8080/resemin/";
 app.filter('html', function($sce) {
     return function(val) {
         return $sce.trustAsHtml(val);
     };
 });
-
-app.controller("PrimerControlador", ["$scope", function(m){
-    m.nombre="Donald Sullon";
-    m.nuevoComentario = {};
-    m.comentarios=[
-        {
-            comentario: "Bien hecho",
-            usuario: "dsullon"
-        },
-        {
-            comentario: "Bacan",
-            usuario: "ssullon"
-        }
-    ]
-    m.agregarComentario = function(){
-        m.comentarios.push(m.nuevoComentario);
-        m.nuevoComentario = {};
-    }
-}])
 app.controller("paginaController",["$scope","$http",function(s,h){
     s.nombre="@dsullon";
     s.paginas=[];

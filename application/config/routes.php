@@ -75,6 +75,14 @@ $route['api/nav']['post'] = 'api/nav/nav';
 $route['api/nav/(:num)']['put'] = 'api/nav/nav/$1';
 $route['api/nav/(:num)']['delete'] = 'api/nav/nav/$1';
 
+//Rutas para Usuarios
+$route['api/user/login']['post'] = 'api/user/login';
+$route['api/user']['get'] = 'api/user/users';
+$route['api/user/(:num)']['get'] = 'api/user/user/$1';
+$route['api/user']['post'] = 'api/user/user';
+$route['api/user/(:num)']['put'] = 'api/user/user/$1';
+$route['api/user/(:num)']['delete'] = 'api/user/user/$1';
+
 /*
 | -------------------------------------------------------------------------
 | Sample REST API Routes
