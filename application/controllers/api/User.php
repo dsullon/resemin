@@ -19,14 +19,14 @@ class User extends REST_Controller {
             $this->response(array('error' => 'No se establecio el valor para contenido'), 400);
         }
         $data = array(
-	  			'titulo' => $this->post('titulo'),
-	  			'contenido' => $this->post('contenido')
+	  			'nick' => $this->post('nick'),
+	  			'password' => $this->post('password')
 			);
-        $id = $this->user_model->save($data);
-        if (!is_null($id)) {
-            $this->response(array('response' => $id), 200);
+        $user = $this->user_model->login($data);
+        if (!is_null($user)) {
+            $this->response(array('response' => $user), 200);
         } else {
-            $this->response(array('error', 'Algo fallo; en el servidor...'), 400);
+            $this->response(array('error' => 'Registro no encontrado...'), 404);
         }
     }
     

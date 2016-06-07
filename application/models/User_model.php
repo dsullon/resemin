@@ -10,6 +10,15 @@ class User_model extends CI_Model
     {
         parent::__construct();
     }
+
+    public function login($access)
+	{
+		$query = $this->db->select('*')->from('user')->where(array('nick' => $access['nick'], 'password' => $access['password']));
+		if ($query->num_rows() === 1) {
+            return $query->row_array();
+        }
+        return null;
+	}
     
     public function get($id = null)
     {
