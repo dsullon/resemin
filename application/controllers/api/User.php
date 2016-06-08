@@ -13,10 +13,10 @@ class User extends REST_Controller {
     public function login_post()
     {
         if (!$this->post('nick')) {
-            $this->response(array('error' => 'No se establecio el valor para titulo'), 400);
+            $this->response(array('error' => 'No se establecio el valor para nick'), 400);
         }
         if (!$this->post('password')) {
-            $this->response(array('error' => 'No se establecio el valor para contenido'), 400);
+            $this->response(array('error' => 'No se establecio el valor para password'), 400);
         }
         $data = array(
 	  			'nick' => $this->post('nick'),

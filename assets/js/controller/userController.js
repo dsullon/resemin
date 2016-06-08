@@ -6,14 +6,12 @@ app.controller("loginController",["$scope","$http", function (s,h) {
             password: s.user.password
         })
             .success(function(data,status,headers,config) {
-
-                s.user = {}; 
-                console.log(data);            
+                console.log(data);
+                s.user = {};          
             })
             .error(function(error){
                 console.log(error);
-                s.user={}; 
-
+                s.user={};
             })
     }
 }])

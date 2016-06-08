@@ -63,33 +63,36 @@ class Dynamic_Nav {
                             echo "</li>";
                         }else{
                             $token = $this->token();
-                            echo '<ul class="nav navbar-nav navbar-right">';
-                                echo '<li class="dropdown">';
-                                    echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>';
-                                    echo '<ul id="login-dp" class="dropdown-menu">';
-                                        echo '<li>';
-                                            echo '<div class="row">';
-                                                echo '<div class="col-md-12">';
-                                                    echo '<form class="form" role="form" method="post" action="'.base_url().'login/new_user" accept-charset="UTF-8" id="login-nav">';
-                                                        echo '<input type="hidden" name="token" value="'.$token.'">';
-                                                        echo '<div class="form-group">';
-                                                                echo '<label class="sr-only" for="usuario">Email address</label>';
-                                                                echo '<input type="text" class="form-control" name="usuario" placeholder="Usuario" required>';
-                                                        echo '</div>';
-                                                        echo '<div class="form-group">';
-                                                                echo '<label class="sr-only" for="password">Password</label>';
-                                                                echo '<input type="password" class="form-control" name="password" placeholder="Password" required>';
-                                                        echo '</div>';
-                                                        echo '<div class="form-group">';
-                                                                echo '<button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>';
-                                                        echo '</div>';
-                                                    echo '</form>';
-                                                echo '</div>';
-                                            echo '</div>';
-                                        echo '</li>';
-                                    echo '</ul>';
-                                echo '</li>';
-                            echo '</ul>';
+                            ?>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+                                    <ul id="login-dp" class="dropdown-menu">
+                                        <li>
+                                            <div class="row">
+                                                <div class="col-md-12" ng-controller="loginController">
+                                                   <form class="form" role="form" method="post" action="".base_url()."login/new_user" accept-charset="UTF-8" id="login-nav">
+                                                        <input type="hidden" name="token" value="".$token."">
+                                                        <div class="form-group">
+                                                           <i class="material-icons prefix">lock_open</i>
+                                                                <label class="sr-only" for="usuario">Email address</label>
+                                                                <input type="text" class="form-control" name="usuario" placeholder="Usuario" required ng-model="user.clave">
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="sr-only" for="password">Password</label>
+                                                                <input type="password" class="form-control" name="password" placeholder="Password" required ng-model="user.password">
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <button class="btn btn-default" ng-disabled="login-nav.$invalid" ng-click="login();">Login</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <?
                         }
                         
                     echo "</ul>";
