@@ -13,8 +13,11 @@ class User_model extends CI_Model
 
     public function login($access)
 	{
-		$query = $this->db->select('*')->from('user')->where(array('nick' => $access['nick'], 'password' => $access['password']));
-		if ($query->num_rows() === 1) {
+		$query = $this->db->select('*')
+        ->from('user')
+        ->where(array('nick' => $access['nick'], 'password' => $access['password']))
+        ->get();
+		if ($query && ($query->num_rows() === 1)) {
             return $query->row_array();
         }
         return null;
